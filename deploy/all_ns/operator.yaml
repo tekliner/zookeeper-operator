@@ -16,12 +16,14 @@ spec:
       containers:
         - name: zookeeper-operator
           # Replace this with the built image name
-          image: 716309063777.dkr.ecr.us-east-1.amazonaws.com/zookeeper-operator:latest
+          image: 716309063777.dkr.ecr.us-east-1.amazonaws.com/zookeeper-operator:IN-561-18
           ports:
           - containerPort: 60000
             name: metrics
           command:
           - zookeeper-operator
+          args:
+          - "--top-domain=imp"
           imagePullPolicy: Always
           env:
           - name: WATCH_NAMESPACE
